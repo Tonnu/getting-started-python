@@ -28,7 +28,7 @@ deploy:
          scp -i $PRIVATEKEY_PATH app.py requirements.txt root@188.166.23.84:/var/local/www
     - script:
         name: pip install server
-        code: ssh -i $PRIVATEKEY_PATH -l root 188.166.23.84 cd /var/www/local && pip install -r requirements.txt
+        code: ssh -i $PRIVATEKEY_PATH -l root 188.166.23.84 cd /var/local/www && pip install -r requirements.txt
     - script:
         name: start app
         code: ssh -i $PRIVATEKEY_PATH -l root 188.166.23.84 python /var/local/www app.py &
