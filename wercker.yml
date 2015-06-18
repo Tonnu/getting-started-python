@@ -5,3 +5,6 @@ dev:
     - internal/watch:
         code: python app.py
         reload: true
+build:
+  steps:
+    - pip-install
