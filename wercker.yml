@@ -10,7 +10,7 @@ build:
     - pip-install
 deploy:
   steps: 
-    - add-to-known-hosts:
+    - add-to-known_hosts:
         hostname: 188.166.23.84
     - mktemp:
         envvar: PRIVATEKEY_PATH
