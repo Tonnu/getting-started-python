@@ -8,3 +8,26 @@ dev:
 build:
   steps:
     - pip-install
+deploy:
+  - add-to-known-hosts:
+      hostname: 188.166.23.84
+  - mktemp:
+      envvar: PRIVATEKEY_PATH
+  - create-file:
+      name: write key
+      filename: $PRIVATEKEY_PATH
+      content: $DIGITALOCEAN_SSH_PRIVATE
+      overwrite: true
+  - script:
+     name: transfer app
+     code: |
+       pwd
+       ls -la
+       scp -i $PRIVATEKEY_PATH app.py requirements.txt root@188.166.23.84:/var/local/www
+  - script:
+      name: pip install server
+      code: ssh -i $PRIVATEKEY_PATH -l root 188.166.23.84 cd /var/www/local && pip install -r requirements.txt
+  - script:
+      name: start app
+      code: ssh -i $PRIVATEKEY_PATH -l root 188.166.23.84 python /var/local/www app.py &
+
