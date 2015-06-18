@@ -9,6 +9,7 @@ build:
   steps:
     - pip-install
 deploy:
+  box: python:2.7
   steps: 
     - add-to-known_hosts:
         hostname: 188.166.23.84
