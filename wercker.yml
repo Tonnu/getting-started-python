@@ -10,9 +10,6 @@ build:
     - virtualenv
     - pip-install
     - script:
-        name: ls -lah ~/.cache/pip
-        code: ls -lah ~/.cache/pip
-    - script:
         name: env
         code: env
 #    - script:
