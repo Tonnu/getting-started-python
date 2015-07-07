@@ -7,10 +7,16 @@ dev:
         reload: true
 build:
   steps:
+    - script:
+        name: copy wercker cache to pip cache dir
+        code: cp -R $WERCKER_CACHE_DIR ~/.cache/pip
     - pip-install
     - script:
         name: ls -lah ~/.cache/pip
         code: ls -lah ~/.cache/pip
+    - script:
+        name: copy wercker cache to pip cache dir
+        code: cp -R $WERCKER_CACHE_DIR ~/.cache/pip
     - script:
         name: python unit test
         code : |
