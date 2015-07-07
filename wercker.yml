@@ -18,6 +18,9 @@ build:
         name: copy wercker cache to pip cache dir
         code: cp -R $WERCKER_CACHE_DIR ~/.cache/pip
     - script:
+        name: env
+        code: env
+    - script:
         name: python unit test
         code : |
           python app_test.py
