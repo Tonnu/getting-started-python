@@ -9,6 +9,9 @@ build:
   steps:
     - pip-install
     - script:
+        name: ls -lah ~/.cache/pip
+        code: ls -lah ~/.cache/pip
+    - script:
         name: python unit test
         code : |
           python app_test.py
