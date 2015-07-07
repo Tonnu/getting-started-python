@@ -22,7 +22,7 @@ build:
     - script:
         name: env
         code: env
-    - script:
-        name: python unit test
-        code : |
-          python app_test.py
+#    - script:
+#        name: python unit test
+#        code : |
+#         python app_test.py
