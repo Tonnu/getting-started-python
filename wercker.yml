@@ -8,15 +8,12 @@ dev:
 build:
   steps:
     - script:
-        name: copy wercker cache to pip cache dir
-        code: cp -R $WERCKER_CACHE_DIR ~/.cache/pip
+        name: set pip cache dir 
+        code: export PIP_DOWNLOAD_CACHE=$WERCKER_CACHE_DIR/pip-download-cache 
     - pip-install
     - script:
         name: ls -lah ~/.cache/pip
         code: ls -lah ~/.cache/pip
-    - script:
-        name: copy wercker cache to pip cache dir
-        code: cp -R $WERCKER_CACHE_DIR ~/.cache/pip
     - script:
         name: env
         code: env
