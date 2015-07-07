@@ -10,6 +10,8 @@ build:
     - script:
         name: set pip cache dir 
         code: |
+          mkdir -p $WERCKER_CACHE_DIR/pip-download-cache
+          mkdir -p $WERCKER_CACHE_DIR/pip-wheels
           export PIP_DOWNLOAD_CACHE=$WERCKER_CACHE_DIR/pip-download-cache 
           export PIP_WHEEL_DIR=$WERCKER_CACHE_DIR/pip-wheels
           ls -lah $WERCKER_CACHE_DIR
